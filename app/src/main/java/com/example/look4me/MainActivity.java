@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (args != null) {
             queryString = args.getString("queryString");
         }
-        return new CarregaSobrenomes(this, queryString);
+        return new CarregaSobrenome(this, queryString);
     }
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
