@@ -1,17 +1,19 @@
 <resources>
     <string name="app_name">Look4Me</string>
-    <string name="instructions">Informe o nome de um livro para ver seu autor </string>
+    <string name="instructions"> Comece a descobrir sua história da família </string>
 
-    <string name="button_text">Busca Livros</string>
+    <string name="button_text">Pesquise pelo seu sobrenome!</string>
 
-    <string name="input_hint">Titulo Livro</string>
+    <string name="input_hint">Sobrenome</string>
 
-    <string name="loading">Carregando…</string>
+    <string name="loading">Buscando pelos seus antecedentes</string>
 
-    <string name="no_results">"Nenhum resultado encontrado"</string>
+    <string name="no_results">"Lamento :( Não foi possível localizar seu sobrenome"</string>
 
     <string name="no_search_term">Informe um termo de busca</string>
 
     <string name="no_network">verifique sua conexão.</string>
     <string name="str_empty">" "</string>
+
+
 </resources>

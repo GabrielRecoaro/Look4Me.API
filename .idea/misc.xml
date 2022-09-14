@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/3etimds/Documents/Look4Me/app/src/main/res/drawable/lay.xml" value="0.295" />
+        <entry key="..\:/Users/3etimds/Documents/Look4Me/app/src/main/res/layout/activity_descricao.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/3etimds/Documents/Look4Me/app/src/main/res/layout/activity_example_app_widget_provider.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/3etimds/Documents/Look4Me/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/3etimds/Documents/Look4Me/app/src/main/res/layout/activity_splash.xml" value="0.35260416666666666" />
       </map>
     </option>
   </component>
