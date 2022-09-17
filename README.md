@@ -2,3 +2,4 @@
 <p>Nomes da dupla: Gabriel Jard e Gustavo de Sousa</p>  
 <p>Repositório com o app Look4Me, que utiliza a API Look4Me feita no Visual Studio.</p> 
 [Repositório da API](https://github.com/GabrielRecoaro/Look4MeAPI)
+(https://github.com/GabrielRecoaro/Look4MeAPI "Clique e acesse agora!")
