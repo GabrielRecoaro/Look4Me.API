@@ -44,7 +44,11 @@
 
         <Button
 
-            android:id="@+id/btnBusca"
+            android:id="@+id/btnBusca1"
+
+            android:textColor="@color/white"
+
+            android:backgroundTint="@color/main"
 
             android:layout_width="wrap_content"
 
@@ -52,11 +56,48 @@
 
             android:layout_marginTop="8dp"
 
+            android:layout_gravity="center"
+
             android:onClick="buscaSobrenomes"
 
             android:text="@string/button_text"
 
             />
+
+        <Button
+            android:id="@+id/btnBusca2"
+
+            android:layout_width="wrap_content"
+
+            android:backgroundTint="@color/main"
+
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+
+            android:layout_gravity="center"
+
+            android:onClick="buscaSobrenomes"
+
+            android:text="@string/button_text1" />
+
+        <Button
+            android:id="@+id/btnBusca3"
+
+            android:layout_width="wrap_content"
+
+            android:backgroundTint="@color/main"
+
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+
+            android:layout_gravity="center"
+
+            android:onClick="buscaSobrenomes"
+
+            android:text="@string/button_text2" />
 
         <TextView
 

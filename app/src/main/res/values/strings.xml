@@ -4,6 +4,10 @@
 
     <string name="button_text">Pesquise pelo seu sobrenome!</string>
 
+    <string name="button_text1">Pesquise pelo seu nome!</string>
+
+    <string name="button_text2">Encontre seu país</string>
+
     <string name="input_hint">Sobrenome</string>
 
     <string name="loading">Buscando pelos seus antecedentes</string>
