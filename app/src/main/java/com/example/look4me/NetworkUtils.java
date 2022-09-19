@@ -29,7 +29,7 @@ public class NetworkUtils {
             // Construção da URI de Busca
             Uri builtURI = Uri.parse(LIVROS_URL).buildUpon()
                     .appendQueryParameter(QUERY_PARAM, queryString)
-                    .appendQueryParameter(MAX_RESULTS, "10")
+                    .appendQueryParameter(MAX_RESULTS, "15")
                     .appendQueryParameter(TIPO_IMPRESSAO, "books")
                     .build();
             // Converte a URI para a URL.

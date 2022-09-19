@@ -4,116 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imglogomain"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/imagem_do_logo_do_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arvore"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/ol_o_que_deseja_ver"
+        android:textAllCaps="true"
+        android:textColor="@color/cinza1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imglogomain" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="457dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtmain">
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/btnlocalizacao"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
             android:layout_marginTop="50dp"
-            android:textColor="@color/main"
-
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_marginTop="120dp"
-            android:layout_width="180pt"
-            android:layout_height="180dp"
-
-
-            app:srcCompat="@drawable/arvore" />
-
-        <Button
-
-            android:id="@+id/btnBusca1"
-
+            android:text="@string/minha_localiza_o"
             android:textColor="@color/white"
-
-            android:backgroundTint="@color/main"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-
-            android:layout_gravity="center"
-
-            android:onClick="buscaSobrenomes"
-
-            android:text="@string/button_text"
-
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/btnBusca2"
-
-            android:layout_width="wrap_content"
-
-            android:backgroundTint="@color/main"
-
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-
-            android:layout_gravity="center"
-
-            android:onClick="buscaSobrenomes"
-
-            android:text="@string/button_text1" />
+            android:id="@+id/btnnome"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/onde_meu_nome_mais_comum"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnlocalizacao"
+            tools:ignore="TextContrastCheck" />
 
         <Button
-            android:id="@+id/btnBusca3"
+            android:id="@+id/btnsobrenome"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/onde_meu_sobrenome_mais_comum"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnnome"
+            tools:ignore="TextContrastCheck" />
 
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnpais"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/o_sobrenome_mais_comum_em_cada_pa_s"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnsobrenome"
+            tools:ignore="TextContrastCheck" />
 
-            android:backgroundTint="@color/main"
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-
-            android:layout_gravity="center"
-
-            android:onClick="buscaSobrenomes"
-
-            android:text="@string/button_text2" />
-
-        <TextView
-
-            android:id="@+id/tituloText"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="16dp"
-
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-
-            />
-
-        <TextView
-
-            android:id="@+id/autorText"
-
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-
-            />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
