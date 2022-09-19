@@ -38,17 +38,18 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Intent info = new Intent(getApplicationContext(), Localizacao.class);
-                startActivity(info);
+                Intent map = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(map);
             }
         });
+
 
         btnnome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent info = new Intent(getApplicationContext(), Nome.class);
-                startActivity(info);
+                Intent nome = new Intent(getApplicationContext(), Nome.class);
+                startActivity(nome);
             }
         });
 
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Intent info = new Intent(getApplicationContext(), Sobrenome.class);
-                startActivity(info);
+                Intent sobrenome = new Intent(getApplicationContext(), Sobrenome.class);
+                startActivity(sobrenome);
             }
         });
 
@@ -65,8 +66,8 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Intent info = new Intent(getApplicationContext(), Pais.class);
-                startActivity(info);
+                Intent pais = new Intent(getApplicationContext(), Pais.class);
+                startActivity(pais);
             }
         });
         }

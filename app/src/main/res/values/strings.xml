@@ -26,6 +26,7 @@
     <string name="o_sobrenome_mais_comum_em_cada_pa_s">O sobrenome mais comum em cada país</string>
     <string name="onde_meu_nome_mais_comum1">Onde meu nome é mais comum?</string>
     <string name="digite_seu_nome">Digite seu nome aqui</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>
