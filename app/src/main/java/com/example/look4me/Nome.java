@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Nome extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
 
@@ -35,5 +37,11 @@ public class Nome extends AppCompatActivity implements LoaderManager.LoaderCallb
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
     //Método de criação obrigatória. Está vazio
+    }
+
+    public void TelaMain(View view) {
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

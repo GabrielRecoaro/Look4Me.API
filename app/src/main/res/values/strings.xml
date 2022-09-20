@@ -17,16 +17,48 @@
     <string name="no_search_term">Informe um termo de busca</string>
 
     <string name="no_network">verifique sua conexão.</string>
+
     <string name="str_empty">" "</string>
+
     <string name="imagem_do_logo_do_app">Imagem do logo do app</string>
-    <string name="ol_o_que_deseja_ver">olá! o que deseja ver?</string>
+
+    <string name="Bemvindo">Boas-vindas Visitante! Por onde começamos?</string>
+
     <string name="minha_localiza_o">Minha Localização</string>
+
     <string name="onde_meu_nome_mais_comum">Onde meu nome é mais comum</string>
-    <string name="onde_meu_sobrenome_mais_comum">onde meu sobrenome é mais comum</string>
+
+    <string name="onde_meu_sobrenome_mais_comum">País onde é mais comum</string>
+
     <string name="o_sobrenome_mais_comum_em_cada_pa_s">O sobrenome mais comum em cada país</string>
+
     <string name="onde_meu_nome_mais_comum1">Onde meu nome é mais comum?</string>
+
     <string name="digite_seu_nome">Digite seu nome aqui</string>
+
     <string name="title_activity_maps">MapsActivity</string>
+
+    <!-- PAIS SEARCH -->
+
+    <string name="pais">País</string>
+    <string name="continente">Continente</string>
+    <string name="nome_mais_comum">Nome mais comum do país</string>
+
+    <!-- NOME SEARCH -->
+
+    <string name="nome">Nome</string>
+    <string name="pais_comum">País onde é mais comum</string>
+    <string name="mais_info">Mais informações</string>
+
+    <!-- SOBRENOME SEARCH -->
+
+    <string name="sobrenome">Sobrenome</string>
+
+
+
+    <string name="pesquisar">Pesquisar</string>
+    <string name="voltar">Voltar</string>
+
 
 
 </resources>
