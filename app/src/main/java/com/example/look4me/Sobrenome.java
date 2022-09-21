@@ -61,16 +61,4 @@ public class Sobrenome extends AppCompatActivity {
         this.msgNm = msgNm;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_sobrenome);
-    }
-
-    public void TelaMain(View view) {
-
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
-    }
 }
