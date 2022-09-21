@@ -7,4 +7,151 @@
     android:background="@color/white"
     tools:context=".Sobrenome">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sobrenome"
+                android:textColor="@color/marrom"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/inputNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/gray_background"
+            android:drawablePadding="5dp"
+            android:ems="10"
+            android:hint="@string/pesquisar"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:textColorHint="@color/DarkGray"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btnBusca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/blue_rounded"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="buscaSobrenome"
+            android:text="@string/pesquisar"
+            android:textAllCaps="false"
+            android:textColor="@color/ColorWhite" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:padding="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Resultados"
+                android:textColor="@color/marrom"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="vertical"
+            android:background="@drawable/gray_background"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gray_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sobrenome"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="@color/Black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/txtNomeComum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/onde_meu_sobrenome_mais_comum"
+                    android:paddingStart="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:text=""
+                    android:textColor="@color/DarkGray"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/txtMInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mais_info"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="8dp"
+                    android:text=""
+                    android:textColor="@color/DarkGray"
+                    android:textSize="12sp" />
+
+
+                <Button
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:onClick="TelaMain"
+                    android:text="@string/voltar"
+                    android:textColor="@color/ColorWhite"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
