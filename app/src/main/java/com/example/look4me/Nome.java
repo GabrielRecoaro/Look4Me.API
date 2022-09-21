@@ -12,6 +12,55 @@ import android.view.View;
 
 public class Nome extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
 
+        private String id;
+        private String nome;
+        private String pais;
+        private String msgNm;
+
+        public Nome(String idNome, String nome, String pais, String msgNm) {
+            this.id=idNome;
+            this.nome=nome;
+            this.pais=pais;
+            this.msgNm=msgNm;
+
+        }
+
+        public Nome() {
+        }
+
+        public String getId() {
+            return id;
+        }
+        public String getNome() {
+            return nome;
+        }
+        public String getPais() {
+
+            return pais;
+        }
+        public String getMsgNm() {
+
+        return msgNm;
+
+        }
+
+
+
+        public void setId(String id){
+            this.id = id;
+        }
+        public void setNome(String nome){
+            this.nome = nome;
+        }
+        public void setPais(String pais){
+            this.pais = pais;
+        }
+
+        public void setMsgNm(String msgNm){
+        this.msgNm = msgNm;
+        }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +85,7 @@ public class Nome extends AppCompatActivity implements LoaderManager.LoaderCallb
 
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
-    //Método de criação obrigatória. Está vazio
+
     }
 
     public void TelaMain(View view) {
