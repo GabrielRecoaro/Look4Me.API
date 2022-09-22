@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.look4me">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -53,9 +54,6 @@
             android:exported="false" />
         <activity
             android:name=".Nome"
-            android:exported="false" />
-        <activity
-            android:name=".Localizacao"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
