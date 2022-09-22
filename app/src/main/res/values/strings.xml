@@ -55,10 +55,13 @@
     <string name="sobrenome">Sobrenome</string>
 
 
-
     <string name="pesquisar">Pesquisar</string>
     <string name="voltar">Voltar</string>
 
-
+    <string name="vazio" />
+    <string name="termo_vazio">Informe um termo para a busca</string>
+    <string name="sem_conexao">Sem conexão</string>
+    <string name="sem_resultado">Nenhum resultado encontrado</string>
+    <string name="carregando">Carregando...</string>
 
 </resources>

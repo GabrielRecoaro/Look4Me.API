@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".Sobrenome">
+    tools:context=".BuscaPais">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,9 +21,10 @@
             android:padding="15dp">
 
             <TextView
+                android:id="@+id/idPais"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sobrenome"
+                android:text="@string/pais"
                 android:textColor="@color/marrom"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
             android:background="@drawable/blue_rounded"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="buscaSobrenome"
+            android:onClick="buscaPais"
             android:text="@string/pesquisar"
             android:textAllCaps="false"
             android:textColor="@color/ColorWhite" />
@@ -102,21 +102,22 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNome"
+                    android:id="@+id/txtSobrenome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/sobrenome"
+                    android:hint="@string/pais"
                     android:paddingStart="12dp"
                     android:paddingTop="8dp"
                     android:paddingEnd="12dp"
+                    android:text=""
                     android:textColor="@color/Black"
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/txtNomeComum"
+                    android:id="@+id/txtContinente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/onde_meu_sobrenome_mais_comum"
+                    android:hint="@string/continente"
                     android:paddingStart="12dp"
                     android:paddingTop="4dp"
                     android:paddingEnd="12dp"
@@ -126,10 +127,10 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtMInfo"
+                    android:id="@+id/txtSmComum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mais_info"
+                    android:hint="@string/onde_meu_nome_mais_comum"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"
                     android:paddingBottom="8dp"

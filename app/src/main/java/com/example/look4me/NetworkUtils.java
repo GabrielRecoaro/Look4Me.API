@@ -12,25 +12,25 @@ import java.net.URL;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    // Constantes utilizadas pela API
-    // URL para a API de Livros do Google.
-    private static final String LIVROS_URL = "https://www.googleapis.com/books/v1/volumes?";
-    // Parametros da string de Busca
+
+    private static final String API_URL = "";
+
     private static final String QUERY_PARAM = "q";
-    // Limitador da qtde de resultados
+
     private static final String MAX_RESULTS = "maxResults";
-    // Parametro do tipo de impressão
+
     private static final String TIPO_IMPRESSAO = "printType";
+
     static String buscaInfosSobrenomes(String queryString) {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
-        String bookJSONString = null;
+        String sobrenomeJSONString = null;
         try {
 
-            Uri builtURI = Uri.parse(LIVROS_URL).buildUpon()
+            Uri builtURI = Uri.parse(API_URL).buildUpon()
                     .appendQueryParameter(QUERY_PARAM, queryString)
                     .appendQueryParameter(MAX_RESULTS, "15")
-                    .appendQueryParameter(TIPO_IMPRESSAO, "books")
+                    .appendQueryParameter(TIPO_IMPRESSAO, "sobrenomes")
                     .build();
 
             URL requestURL = new URL(builtURI.toString());
@@ -54,7 +54,7 @@ public class NetworkUtils {
 
                 return null;
             }
-            bookJSONString = builder.toString();
+            sobrenomeJSONString = builder.toString();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -71,7 +71,115 @@ public class NetworkUtils {
             }
         }
 
-        Log.d(LOG_TAG, bookJSONString);
-        return bookJSONString;
+        Log.d(LOG_TAG, sobrenomeJSONString);
+        return sobrenomeJSONString;
     }
+    static String buscaInfosNome(String queryString) {
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+        String nomeJSONString = null;
+        try {
+
+            Uri builtURI = Uri.parse(API_URL).buildUpon()
+                    .appendQueryParameter(QUERY_PARAM, queryString)
+                    .appendQueryParameter(MAX_RESULTS, "15")
+                    .appendQueryParameter(TIPO_IMPRESSAO, "nomes")
+                    .build();
+
+            URL requestURL = new URL(builtURI.toString());
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+
+            InputStream inputStream = urlConnection.getInputStream();
+
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            StringBuilder builder = new StringBuilder();
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+
+                builder.append(linha);
+                builder.append("\n");
+            }
+            if (builder.length() == 0) {
+
+                return null;
+            }
+            nomeJSONString = builder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Log.d(LOG_TAG, nomeJSONString);
+        return nomeJSONString;
+    }
+
+    static String buscaInfosPais(String queryString) {
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+        String paisJSONString = null;
+        try {
+
+            Uri builtURI = Uri.parse(API_URL).buildUpon()
+                    .appendQueryParameter(QUERY_PARAM, queryString)
+                    .appendQueryParameter(MAX_RESULTS, "15")
+                    .appendQueryParameter(TIPO_IMPRESSAO, "pais")
+                    .build();
+
+            URL requestURL = new URL(builtURI.toString());
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+
+            InputStream inputStream = urlConnection.getInputStream();
+
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            StringBuilder builder = new StringBuilder();
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+
+                builder.append(linha);
+                builder.append("\n");
+            }
+            if (builder.length() == 0) {
+
+                return null;
+            }
+            paisJSONString = builder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Log.d(LOG_TAG, paisJSONString);
+        return paisJSONString;
+    }
+
 }
