@@ -42,7 +42,7 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
         inputNome = findViewById(R.id.inputNome);
         Pais = findViewById(R.id.txtSobrenome);
         Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.txtSmComum);
+        SmComum = findViewById(R.id.msgSm);
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBusca = findViewById(R.id.btnBusca);
@@ -66,7 +66,7 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
 
         Pais = findViewById(R.id.txtSobrenome);
         Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.txtSmComum);
+        SmComum = findViewById(R.id.msgSm);
 
         String queryString = inputNome.getText().toString();
         InputMethodManager inputManager = (InputMethodManager)

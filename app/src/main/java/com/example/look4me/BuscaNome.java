@@ -52,7 +52,7 @@ public class BuscaNome extends AppCompatActivity implements LoaderManager.Loader
         nomeSobrenome = findViewById(R.id.inputNome);
         nome = findViewById(R.id.txtSobrenome);
         paisNm = findViewById(R.id.txtContinente);
-        msgNm = findViewById(R.id.txtSmComum);
+        msgNm = findViewById(R.id.msgSm);
         btnVoltar = findViewById(R.id.btnVoltar);
 
 

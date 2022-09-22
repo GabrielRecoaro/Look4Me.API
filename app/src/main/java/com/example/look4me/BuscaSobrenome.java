@@ -1,5 +1,7 @@
 package com.example.look4me;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,18 +13,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
@@ -35,7 +36,7 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
 
 
 
-    ImageButton btnVoltar;
+    Button btnVoltar, btnBusca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,8 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
         setContentView(R.layout.activity_busca_sobrenome);
         sobrenomeSobresobrenome = findViewById(R.id.inputNome);
         sobrenome = findViewById(R.id.txtSobrenome);
-        paisSm = findViewById(R.id.txtSmComum);
+        paisSm = findViewById(R.id.msgSm);
         msgSm = findViewById(R.id.msgSm);
-        btnVoltar = findViewById(R.id.btnVoltar);
-
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBusca = findViewById(R.id.btnBusca);
 
@@ -91,14 +90,14 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
             Bundle queryBundle = new Bundle();
             queryBundle.putString("queryString", queryString);
             getSupportLoaderManager().restartLoader(0, queryBundle, this);
-            paisNm.setText(R.string.vazio);
+            paisSm.setText(R.string.vazio);
             sobrenome.setText(R.string.carregando);
         } else {
             if (queryString.length() == 0) {
-                paisNm.setText(R.string.vazio);
+                paisSm.setText(R.string.vazio);
                 sobrenome.setText(R.string.termo_vazio);
             } else {
-                paisNm.setText(" ");
+                paisSm.setText(" ");
                 sobrenome.setText(R.string.sem_conexao);
             }
         }
@@ -153,10 +152,10 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
                 autor = autor.replaceAll("\\[", "");
                 autor = autor.replaceAll("\\]", "");
                 autor = autor.replaceAll("\\\"", "");
-                paisNm.setText(autor);
+                paisSm.setText(autor);
 
 
-                msgNm.setText("N° de páginas: " + pag);
+                msgSm.setText("N° de páginas: " + pag);
 
 
                 if(cat != null){

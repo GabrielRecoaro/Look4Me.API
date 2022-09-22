@@ -127,7 +127,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/txtSmComum"
+                    android:id="@+id/msgSm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mais_info"
