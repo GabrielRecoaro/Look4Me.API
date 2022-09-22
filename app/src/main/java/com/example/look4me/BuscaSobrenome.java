@@ -44,9 +44,9 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
         getSupportActionBar().hide();
         setContentView(R.layout.activity_busca_sobrenome);
         sobrenomeSobresobrenome = findViewById(R.id.inputNome);
-        sobrenome = findViewById(R.id.txtSobrenome);
-        paisSm = findViewById(R.id.msgSm);
-        msgSm = findViewById(R.id.msgSm);
+        sobrenome = findViewById(R.id.txtnome);
+        paisSm = findViewById(R.id.msgNm);
+        msgSm = findViewById(R.id.msgNm);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBusca = findViewById(R.id.btnBusca);
 

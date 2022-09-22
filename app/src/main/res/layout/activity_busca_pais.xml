@@ -102,7 +102,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtSobrenome"
+                    android:id="@+id/txtnome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/pais"
@@ -114,7 +114,7 @@
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/txtContinente"
+                    android:id="@+id/txtpaisNm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/continente"
@@ -127,7 +127,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/msgSm"
+                    android:id="@+id/msgNm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/onde_meu_nome_mais_comum"

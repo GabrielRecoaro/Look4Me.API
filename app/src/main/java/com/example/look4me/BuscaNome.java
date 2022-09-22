@@ -12,6 +12,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ import java.io.InputStreamReader;
 
 public class BuscaNome extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
-    private EditText nomeSobrenome;
+    private EditText inputnome;
     private TextView nome;
     private TextView paisNm;
     private TextView msgNm;
@@ -43,16 +44,16 @@ public class BuscaNome extends AppCompatActivity implements LoaderManager.Loader
     private static final String FILE_NAME = "usuarioLogado.json";
 
 
-    ImageButton btnVoltar;
+    Button btnVoltar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_busca_nome);
-        nomeSobrenome = findViewById(R.id.inputNome);
-        nome = findViewById(R.id.txtSobrenome);
-        paisNm = findViewById(R.id.txtContinente);
-        msgNm = findViewById(R.id.msgSm);
+        inputnome = findViewById(R.id.inputNome);
+        nome = findViewById(R.id.txtnome);
+        paisNm = findViewById(R.id.txtpaisNm);
+        msgNm = findViewById(R.id.msgNm);
         btnVoltar = findViewById(R.id.btnVoltar);
 
 
@@ -136,7 +137,7 @@ public class BuscaNome extends AppCompatActivity implements LoaderManager.Loader
         if (args != null) {
             queryString = args.getString("queryString");
         }
-        return new LoadSobrenomes(this, queryString);
+        return new LoadNome(this, queryString);
     }
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {

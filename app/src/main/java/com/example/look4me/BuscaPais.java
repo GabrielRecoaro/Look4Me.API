@@ -40,9 +40,9 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
         getSupportActionBar().hide();
         setContentView(R.layout.activity_busca_pais);
         inputNome = findViewById(R.id.inputNome);
-        Pais = findViewById(R.id.txtSobrenome);
-        Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.msgSm);
+        Pais = findViewById(R.id.txtnome);
+        Continente = findViewById(R.id.txtpaisNm);
+        SmComum = findViewById(R.id.msgNm);
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBusca = findViewById(R.id.btnBusca);
@@ -64,9 +64,9 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
 
     public void buscaPais(View view) {
 
-        Pais = findViewById(R.id.txtSobrenome);
-        Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.msgSm);
+        Pais = findViewById(R.id.txtnome);
+        Continente = findViewById(R.id.txtpaisNm);
+        SmComum = findViewById(R.id.msgNm);
 
         String queryString = inputNome.getText().toString();
         InputMethodManager inputManager = (InputMethodManager)
@@ -163,13 +163,7 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busca_pais);
-
-    }
 
 
     public void TelaMain(View view) {
