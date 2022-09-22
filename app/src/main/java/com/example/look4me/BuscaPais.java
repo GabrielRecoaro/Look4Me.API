@@ -140,7 +140,7 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
             }
             if (pais != null && continente != null) {
 
-                inputNome.setText(Pais);
+                inputNome.setText(Pais); //Final
 
                 continente = continente.replaceAll("\\[", "");
                 continente = continente.replaceAll("\\]", "");

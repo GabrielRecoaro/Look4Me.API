@@ -13,7 +13,7 @@ import java.net.URL;
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
-    private static final String API_URL = "";
+    private static final String API_URL = "https://localhost93648/api/Sobrenome/getAllSobrenomes";
 
     private static final String QUERY_PARAM = "q";
 
