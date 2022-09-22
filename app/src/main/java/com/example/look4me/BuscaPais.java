@@ -40,9 +40,9 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
         getSupportActionBar().hide();
         setContentView(R.layout.activity_busca_pais);
         inputNome = findViewById(R.id.inputNome);
-        Pais = findViewById(R.id.txtSobrenome);
-        Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.txtSmComum);
+        Pais = findViewById(R.id.txtmain1);
+        Continente = findViewById(R.id.txtmain2);
+        SmComum = findViewById(R.id.txtmain3);
 
         btnVoltar = findViewById(R.id.btnVoltar);
         btnBusca = findViewById(R.id.btnBusca);
@@ -64,9 +64,9 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
 
     public void buscaPais(View view) {
 
-        Pais = findViewById(R.id.txtSobrenome);
-        Continente = findViewById(R.id.txtContinente);
-        SmComum = findViewById(R.id.txtSmComum);
+        Pais = findViewById(R.id.txtmain1);
+        Continente = findViewById(R.id.txtmain2);
+        SmComum = findViewById(R.id.txtmain3);
 
         String queryString = inputNome.getText().toString();
         InputMethodManager inputManager = (InputMethodManager)
@@ -130,8 +130,8 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
 
                 try {
                     pais = volumeInfo.getString("nome");
-                    continente = volumeInfo.getString("authors");
-                    msgSm = volumeInfo.getString("pageCount");
+                    continente = volumeInfo.getString("continente");
+                    msgSm = volumeInfo.getString("mensagem");
                     id = volumeInfo.getString("id");
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -140,7 +140,7 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
             }
             if (pais != null && continente != null) {
 
-                nomeTitulo.setText(Pais);
+                inputNome.setText(Pais);
 
                 continente = continente.replaceAll("\\[", "");
                 continente = continente.replaceAll("\\]", "");
@@ -151,16 +151,17 @@ public class BuscaPais extends AppCompatActivity implements LoaderManager.Loader
                 stringPais = pais;
                 stringContinente = continente;
 
-
-                @Override
-                public void onLoaderReset(@NonNull Loader <String> loader) {
-                }
             }
+
         }
 
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader <String> loader) {
     }
 
     @Override

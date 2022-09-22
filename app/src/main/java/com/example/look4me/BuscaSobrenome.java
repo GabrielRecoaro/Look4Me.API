@@ -1,5 +1,7 @@
 package com.example.look4me;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,18 +13,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
@@ -31,11 +32,10 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
     private TextView paisSm;
     private TextView msgSm;
 
-    public String  stringId = null, stringTitulo = null, stringAutor = null, stringLink = null;
+    public String  stringId = null, stringSobrenome = null, stringPaisSm = null, stringMsgSm = null;
 
-
-
-    ImageButton btnVoltar;
+    Button btnVoltar;
+    Button btnBusca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +43,17 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
         getSupportActionBar().hide();
         setContentView(R.layout.activity_busca_sobrenome);
         sobrenomeSobresobrenome = findViewById(R.id.inputNome);
-        sobrenome = findViewById(R.id.txtSobrenome);
-        paisSm = findViewById(R.id.txtSmComum);
-        msgSm = findViewById(R.id.msgSm);
-        btnVoltar = findViewById(R.id.btnVoltar);
+        sobrenome = findViewById(R.id.txtmain1);
+        paisSm = findViewById(R.id.txtmain2);
+        msgSm = findViewById(R.id.txtmain3);
 
         btnVoltar = findViewById(R.id.btnVoltar);
-        btnBusca = findViewById(R.id.btnBusca);
+        btnBusca = findViewById(R.id.btnVoltar);
 
 
         if (getSupportLoaderManager().getLoader(0) != null) {
             getSupportLoaderManager().initLoader(0, null, this);
         }
-
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +70,7 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
     }
 
 
-    public void buscaSobreomes(View view) {
+    public void buscaSobrenome(View view) {
         String queryString = sobrenomeSobresobrenome.getText().toString();
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -91,14 +89,14 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
             Bundle queryBundle = new Bundle();
             queryBundle.putString("queryString", queryString);
             getSupportLoaderManager().restartLoader(0, queryBundle, this);
-            paisNm.setText(R.string.vazio);
+            paisSm.setText(R.string.vazio);
             sobrenome.setText(R.string.carregando);
         } else {
             if (queryString.length() == 0) {
-                paisNm.setText(R.string.vazio);
+                paisSm.setText(R.string.vazio);
                 sobrenome.setText(R.string.termo_vazio);
             } else {
-                paisNm.setText(" ");
+                paisSm.setText(" ");
                 sobrenome.setText(R.string.sem_conexao);
             }
         }
@@ -110,7 +108,7 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
         if (args != null) {
             queryString = args.getString("queryString");
         }
-        return new LoadSobresobrenomes(this, queryString);
+        return new LoadSobrenome(this, queryString);
     }
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
@@ -119,124 +117,47 @@ public class BuscaSobrenome extends AppCompatActivity implements LoaderManager.L
             JSONArray itemsArray = jsonObject.getJSONArray("items");
             int i = 0;
             String id = null;
-            String titulo = null;
-            String autor = null;
-            String pag = null;
-            String cat = null;
-            String link = null;
+            String nome = null;
+            String paissm = null;
+            String msgsm = null;
 
 
             while (i < itemsArray.length() &&
-                    (autor == null && titulo == null)) {
+                    (nome == null && paissm == null)) {
                 JSONObject book = itemsArray.getJSONObject(i);
                 JSONObject volumeInfo = book.getJSONObject("volumeInfo");
 
 
                 try {
-                    titulo = volumeInfo.getString("title");
-                    autor = volumeInfo.getString("authors");
-                    pag = volumeInfo.getString("pageCount");
-                    cat = volumeInfo.getString("categories");
-                    link = volumeInfo.getString("previewLink");
+                    nome = volumeInfo.getString("nome");
+                    paissm = volumeInfo.getString("pais");
+                    msgsm = volumeInfo.getString("menasgem");
                     id = volumeInfo.getString("id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 i++;
             }
-            if (titulo != null && autor != null) {
 
-
-                sobrenome.setText(titulo);
-
-
-                autor = autor.replaceAll("\\[", "");
-                autor = autor.replaceAll("\\]", "");
-                autor = autor.replaceAll("\\\"", "");
-                paisNm.setText(autor);
-
-
-                msgNm.setText("N° de páginas: " + pag);
-
-
-                if(cat != null){
-                    cat = cat.replaceAll("\\[", "");
-                    cat = cat.replaceAll("\\]", "");
-                    cat = cat.replaceAll("\\\"", "");
-                    sobrenomeCat.setText("Categoria: " + cat);
-                } else {
-                    sobrenomeCat.setText("Categoria: Não Identificado");
-                }
-
-
-                stringId = id;
-                stringTitulo = titulo;
-                stringAutor = autor;
-                stringLink = link;
-
-
-                buttonSalvar.setOnClickListener(v ->{
-                    Sobresobrenome sobresobrenomeSalvo = new Sobresobrenome(
-                            stringId,
-                            stringTitulo,
-                            stringAutor,
-                            stringLink
-                    );
-                    SobresobrenomeDAO sobresobrenomeDAO = new SobresobrenomeDAO(getApplicationContext());
-                    sobresobrenomeDAO.cadastrarSobresobrenome(sobresobrenomeSalvo);
-
-
-                    Gson gson = new Gson();
-                    String usuarioJson = lerDados();
-                    Usuario usuario = gson.fromJson(usuarioJson, Usuario.class);
-
-
-                    int fkUsuario = usuario.getId();
-
-
-                    Usuario usuarioFavorito = new Usuario(fkUsuario);
-                    Sobresobrenome sobresobrenomeFavorito = new Sobresobrenome(stringId);
-
-
-                    FavoritosDAO favoritos = new FavoritosDAO(getApplicationContext());
-
-
-                    try{
-                        favoritos.cadastrarFavorito(usuarioFavorito, sobresobrenomeFavorito);
-                        Toast.makeText(getApplicationContext(), "Sobresobrenome favoritado", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getBaseContext(), FavoritosActivity.class));
-                    }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }
-                });
-            } else {
-                sobrenome.setText(R.string.sem_resultado);
-                paisNm.setText(R.string.vazio);
-                Toast.makeText(getApplicationContext(),"else", Toast.LENGTH_SHORT).show();
-
-
-            }
         } catch (Exception e) {
             sobrenome.setText(R.string.vazio);
-            paisNm.setText(R.string.vazio);
-            msgNm.setText(R.string.vazio);
-            stringLink = null;
-            Toast.makeText(getApplicationContext(),"Nenhum sobresobrenome encontrado", Toast.LENGTH_SHORT).show();
+            paisSm.setText(R.string.vazio);
+            msgSm.setText(R.string.vazio);
+
+            Toast.makeText(getApplicationContext(),"Nenhum sobrenome encontrado", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
     }
-}
-
-}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busca_sobrenome);
+
     }
 
     public void TelaMain(View view) {
